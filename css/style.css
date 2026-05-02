@@ -247,6 +247,24 @@ header {
 }
 
 @media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+    .header-content {
+        text-align: left;
+    }
+    .header-content h1 {
+        font-size: 18px;
+    }
+    .header-content p {
+        font-size: 12px;
+    }
+    .user-panel {
+        position: static;
+        transform: none;
+        flex-shrink: 0;
+    }
     body { 
         overflow: hidden; 
     }

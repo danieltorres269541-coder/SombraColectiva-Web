@@ -19,7 +19,7 @@ const zoomDefecto = 15;
 const vistaGuardada = sessionStorage.getItem('ultimaVistaMapa');
 const vistaInicial = vistaGuardada ? JSON.parse(vistaGuardada) : { centro: centroDefecto, zoom: zoomDefecto };
 
-const map = L.map('mapaPrincipal').setView(vistaInicial.centro, vistaInicial.zoom);
+const map = L.map('mapaPrincipal', { tap: false }).setView(vistaInicial.centro, vistaInicial.zoom);
 
 sessionStorage.removeItem('ultimaVistaMapa');
 
