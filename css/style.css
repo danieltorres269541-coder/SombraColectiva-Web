@@ -1,37 +1,269 @@
-/* Estilos para el fondo oscuro de la ventana emergente */
+:root {
+    --primario: #2E7D32;
+    --secundario: #1B5E20;
+    --fondo: #f4f4f9;
+    --blanco: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--fondo);
+    color: #333;
+    overflow: hidden; 
+}
+
+header {
+    background: linear-gradient(135deg, var(--primario), var(--secundario));
+    color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.header-content h1 { margin: 0; font-size: 24px; }
+.header-content p { margin: 5px 0 0 0; font-size: 14px; }
+
+.user-panel {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.user-panel button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--blanco);
+    color: var(--blanco);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.user-panel button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.user-panel .btn-salir {
+    background: #ff5252;
+    border: none;
+    margin-left: 10px;
+}
+
+.contenedor-principal {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px); 
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+#seccionGaleria {
+    width: 35%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+#seccionMapa {
+    width: 65%;
+    height: 100%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+#mapaPrincipal {
+    width: 100%;
+    height: 100%;
+}
+
+.controles-mapa {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn-circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-circular:hover {
+    transform: scale(1.1);
+}
+
+.galeria-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.galeria-encabezado h2 { margin: 0; font-size: 20px; }
+
+.contenedor-filtro {
+    margin-bottom: 20px;
+}
+
+.contenedor-filtro select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    font-family: inherit;
+    background: var(--fondo);
+    cursor: pointer;
+    outline: none;
+}
+
+.galeria-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.galeria-item {
+    background: var(--fondo);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.galeria-item img:hover {
+    opacity: 0.9;
+}
+
+.item-descripcion {
+    padding: 15px;
+}
+
+.item-categoria {
+    display: block;
+    font-weight: bold;
+    color: var(--primario);
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
-    z-index: 2000; /* Para que quede por encima del mapa */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6); /* Fondo negro semi-transparente */
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
 }
 
-/* Estilos para la cajita blanca del formulario */
 .modal-contenido {
-    background-color: #fefefe;
-    margin: 15% auto; /* Centrado en la pantalla */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 85%;
+    background: var(--blanco);
+    margin: 8% auto;
+    padding: 25px;
+    width: 90%;
     max-width: 400px;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* La "X" para cerrar la ventana */
-.cerrar {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+.modal-contenido h3 { margin-top: 0; }
+
+.modal-contenido label {
+    display: block;
+    margin: 15px 0 5px;
     font-weight: bold;
-    cursor: pointer;
+    font-size: 14px;
 }
 
-.cerrar:hover {
-    color: #dc3545;
+.modal-contenido input, .modal-contenido select, .modal-contenido textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.modal-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-primario {
+    background: var(--primario);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancelar {
+    background: #eee;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    body { 
+        overflow: hidden; 
+    }
+    .contenedor-principal {
+        flex-direction: column;
+        height: calc(100vh - 60px); 
+        padding: 10px;
+    }
+    #seccionMapa {
+        width: 100%;
+        height: 45%; 
+        order: -1; 
+    }
+    #seccionGaleria {
+        width: 100%;
+        height: 55%; 
+        overflow-y: auto; 
+        margin-bottom: 0;
+    }
 }
