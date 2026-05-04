@@ -284,4 +284,23 @@ header {
         overflow-y: auto; 
         margin-bottom: 0;
     }
+
+    .leaflet-popup-content-wrapper {
+        border-radius: 12px;
+        padding: 5px;
+    }
+
+    .leaflet-popup-content {
+        margin: 12px;
+        line-height: 1.4;
+        max-height: 250px;
+        overflow-y: auto; 
+    }
+
+    .leaflet-popup-content img {
+        max-height: 100px !important;
+        width: auto !important;
+        margin: 5px auto;
+        display: block;
+    }
 }
